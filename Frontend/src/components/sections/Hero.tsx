@@ -23,24 +23,40 @@ export function Hero() {
           <motion.p
             {...fadeInUp}
             transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" }}
-            className="mt-10 max-w-[560px] text-[13px] leading-6 text-muted"
+            className="mt-10 max-w-[620px] text-[14px] leading-7 text-muted"
           >
             {heroContent.description}
           </motion.p>
 
+          <motion.ul
+            {...fadeInUp}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="mt-8 space-y-3 text-[13px] leading-6 text-ink"
+          >
+            {heroContent.subpoints.map((point) => (
+              <li key={point} className="flex items-start gap-3">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </motion.ul>
+
           <motion.div
             {...fadeInUp}
             transition={{ duration: 0.7, delay: 0.24, ease: "easeOut" }}
-            className="mt-20"
+            className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
-            <Button href={heroContent.primaryCta.href} variant="ghost" className="border-x-0 border-t-0 px-0 pb-3 pt-0 text-[12px] tracking-[0.18em]">
-              {heroContent.primaryCta.label} →
+            <Button href={heroContent.primaryCta.href} className="min-w-[220px] !bg-accent !text-[var(--accent-text)] hover:!bg-[var(--accent-hover)]">
+              {heroContent.primaryCta.label}
+            </Button>
+            <Button href={heroContent.secondaryCta.href} variant="ghost" className="min-w-[220px]">
+              {heroContent.secondaryCta.label}
             </Button>
           </motion.div>
         </div>
 
         <div className="bg-panel px-6 py-14 sm:px-10 lg:px-14 lg:py-24">
-          <div className="space-y-20">
+          <div className="space-y-16">
             {heroContent.metrics.map((metric, index) => (
               <motion.div
                 key={metric.label}

@@ -1,18 +1,10 @@
-import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { navigation, themeOptions } from "@/data/content";
-import type { ThemeMode } from "@/types/content";
+import { navigation } from "@/data/content";
 import { useStickyHeader } from "@/hooks/useStickyHeader";
 
-type NavbarProps = {
-  theme: ThemeMode;
-  onToggleTheme: () => void;
-};
-
-export function Navbar({ theme, onToggleTheme }: NavbarProps) {
+export function Navbar() {
   const isScrolled = useStickyHeader(20);
   const [isOpen, setIsOpen] = useState(false);
-  const nextTheme = themeOptions.find((option) => option.mode !== theme)?.label ?? "Toggle";
 
   return (
     <header className="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm">
@@ -31,20 +23,11 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={onToggleTheme}
-              className="inline-flex items-center gap-2 border border-line px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-black/[0.04]"
-              aria-label={`Switch to ${nextTheme.toLowerCase()} theme`}
-            >
-              {theme === "light" ? <Moon size={14} /> : <Sun size={14} />}
-              <span className="hidden sm:inline">{nextTheme}</span>
-            </button>
             <a
-              href="mailto:hello@federationllp.com"
-              className="hidden border border-line px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-black/[0.04] md:inline-flex"
+              href="mailto:hello@federationllp.com?subject=Group%20Enquiry"
+              className="hidden rounded-md border border-line px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-accentSoft md:inline-flex"
             >
-              Engage Us
+              Contact Group
             </a>
             <button
               type="button"

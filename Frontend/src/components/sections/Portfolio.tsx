@@ -29,24 +29,28 @@ export function Portfolio() {
         </motion.a>
       </div>
 
-      <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {portfolioItems.map((item, index) => (
           <motion.article
             key={item.code}
             {...fadeInUp}
             transition={{ duration: 0.7, delay: index * 0.05, ease: "easeOut" }}
-            whileHover={{ y: -4, boxShadow: "0 18px 40px rgba(18,16,14,0.06)" }}
-            className="theme-surface border"
+            whileHover={{ y: -4 }}
+            className="theme-surface rounded-xl border"
           >
-            <div className="grid h-44 place-items-center border-b border-[var(--color-card-line)]" style={{ backgroundColor: item.tone }}>
+            <div className="grid h-44 place-items-center border-b border-[var(--color-card-line)] rounded-t-xl" style={{ backgroundColor: item.tone }}>
               <span className="font-display text-[7rem] leading-none text-black/10">{item.initial}</span>
             </div>
-            <div className="px-5 py-4">
-              <p className="eyebrow text-muted">{item.category}</p>
-              <h3 className="mt-2 text-[16px] font-semibold text-ink">{item.name}</h3>
-              <p className="mt-4 text-[12px] leading-6 text-muted">{item.description}</p>
+            <div className="px-5 py-5">
+              <div className="flex items-center justify-between gap-4">
+                <p className="eyebrow text-muted">{item.category}</p>
+                <span className="rounded-md bg-accentSoft px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">{item.entityType}</span>
+              </div>
+              <h3 className="mt-3 text-[18px] font-semibold text-ink">{item.name}</h3>
+              <p className="mt-3 text-[12px] leading-6 text-muted">{item.description}</p>
+              <p className="mt-4 text-[12px] font-medium leading-6 text-ink">{item.audience}</p>
               <div className="mt-8 flex items-center justify-between border-t border-[var(--color-card-line)] pt-3 text-[11px] uppercase tracking-[0.18em] text-ink">
-                <span>Explore →</span>
+                <a href={item.href}>Request intro →</a>
                 <span>{item.code}</span>
               </div>
             </div>

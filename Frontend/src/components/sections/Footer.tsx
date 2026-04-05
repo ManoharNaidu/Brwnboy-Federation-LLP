@@ -3,10 +3,10 @@ import { footerContent } from "@/data/content";
 export function Footer() {
   return (
     <footer id="footer" className="border-t border-line bg-canvas px-6 py-14 sm:px-10 lg:px-14">
-      <div className="grid gap-10 lg:grid-cols-[280px_repeat(4,minmax(0,1fr))]">
+      <div className="grid gap-10 lg:grid-cols-[300px_repeat(4,minmax(0,1fr))]">
         <div>
           <p className="text-[1.1rem] font-semibold uppercase tracking-[0.12em] text-ink">{footerContent.brand}</p>
-          <p className="mt-4 max-w-[280px] text-[12px] leading-6 text-muted">{footerContent.description}</p>
+          <p className="mt-4 max-w-[300px] text-[12px] leading-6 text-muted">{footerContent.description}</p>
         </div>
 
         {footerContent.columns.map((column) => (
