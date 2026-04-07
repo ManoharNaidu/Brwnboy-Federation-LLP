@@ -6,7 +6,7 @@
   "description": "Federation LLP governance and portfolio landing page",
   "author": "Brwnboy Federation LLP",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "vite",
